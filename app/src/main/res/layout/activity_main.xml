@@ -1,27 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<HorizontalScrollView
+<!--Outer container layout-->
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.infosys.optimumguide.MainActivity">
+    android:orientation="horizontal"
+    tools:context=".MainActivity">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+    <!--To display Channels list-->
+    <LinearLayout
+        android:layout_width="150dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!--Position (0,0)-->
+        <TextView
+            android:id="@+id/tv_change_date"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rcv_channel_name"
+            android:scrollbars="none"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"/>
+
+        </LinearLayout>
 
 
-            <TextView
-                android:id="@+id/main_header"
-                android:layout_width="match_parent"
-                android:layout_height="50dp" />
+    <!--To display Time and Programs list-->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/rcv_verticle"
-                android:scrollbars="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <!--Time horizontal list-->
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rcv_vertical_header"
+                    android:scrollbars="none"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"/>
+
+                <!--Vertical list whose each elements are horizontal list to show programs-->
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rcv_vertical"
+                    android:scrollbars="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
             </LinearLayout>
 
-</HorizontalScrollView>
+    </HorizontalScrollView>
+</LinearLayout>
